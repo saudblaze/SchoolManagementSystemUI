@@ -1,0 +1,334 @@
+<div class="wrapper">
+
+    <!-- <app-navbar></app-navbar> -->
+
+
+    <app-aside></app-aside>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height: 600px">
+
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-9">
+                        <h1 class="m-0 text-dark">Dashboard</h1>
+                    </div>
+                    <div class="col-sm-3" >
+                        <!-- <button  type="button" class="btn btn-block btn-primary" (click)="SearchYourCustomer();" >Search Your Customer</button> -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Info boxes -->
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-info elevation-1">
+                                <i class="fas fa-hotel"></i>
+                            </span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Total Students</span>
+                                <span class="info-box-number">
+                                    {{DashboardCount.TotalStudents}}
+                                </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-danger elevation-1">
+                                <i class="fas fa-bullseye"></i>
+                            </span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Teachers</span>
+                                <span class="info-box-number">{{DashboardCount.Teachers}}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+
+                    <!-- fix for small devices only -->
+                    <div class="clearfix hidden-md-up"></div>
+
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1">
+                                <i class="fas fa-tasks"></i>
+                            </span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Batches</span>
+                                <span class="info-box-number">{{DashboardCount.Batches}}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-warning elevation-1">
+                                <!-- <i class="fas fa-check-square"></i> -->
+                                <i class="fas fa-check-square" style="color:#ffffff"></i>
+                                <!-- <i class="fas fa-check"></i> -->
+                            </span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Complains</span>
+                                <span class="info-box-number">{{DashboardCount.Complains}}</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header ">
+                                <h5 class="card-title">Hotels Category Wise</h5>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="chart-wrapper">
+                                    <canvas id="HotelCategory"></canvas>
+                                </div>
+                            </div>
+                            <!-- ./card-body -->
+                            <!-- <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-sm-3 col-6">
+                                        <div class="description-block border-right">
+                                            <h5 class="description-header">{{DashboardCount.GENERALMANAGER}}</h5>
+                                            <span class="description-text">General Manager</span>
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-sm-2 col-6">
+                                        <div class="description-block border-right">
+                                            <h5 class="description-header">{{DashboardCount.MANAGER}}</h5>
+                                            <span class="description-text">Manager</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-6">
+                                        <div class="description-block border-right">
+                                            <h5 class="description-header">{{DashboardCount.FRONTDESK}}</h5>
+                                            <span class="description-text">Front Desk</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-6">
+                                        <div class="description-block border-right">
+                                            <h5 class="description-header">{{DashboardCount.HOUSEKEEPING}}</h5>
+                                            <span class="description-text">Housekeeping</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 col-6">
+                                        <div class="description-block">
+                                            <h5 class="description-header">{{DashboardCount.MAINTENANCE}}</h5>
+                                            <span class="description-text">Maintenance</span>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="far fa-chart-bar"></i>
+                                    Hotel Data
+                                </h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-wrapper">
+                                    <canvas id="HotelDataChart"></canvas>
+                                </div>
+                            </div>
+                            <!-- /.card-body-->
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="far fa-chart-bar"></i>
+                                    Review Data
+                                </h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>                                    
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-wrapper">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-primary card-outline">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <i class="far fa-chart-bar"></i>
+                                                        Review level wise
+                                                    </h3>                                                    
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="chart-wrapper">
+                                                        <canvas id="Reviewlevelwise"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card card-primary card-outline">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <i class="far fa-chart-bar"></i>
+                                                        Customer Rating wise
+                                                    </h3>                                                    
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="chart-wrapper">
+                                                        <canvas id="CustomerRatingwise"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-primary card-outline">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <i class="far fa-chart-bar"></i>
+                                                        Review level wise Owned
+                                                    </h3>                                                    
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="chart-wrapper">
+                                                        <canvas id="ReviewlevelwiseOwned"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card card-primary card-outline">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <i class="far fa-chart-bar"></i>
+                                                        Customer Rating wise Owned
+                                                    </h3>                                                    
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="chart-wrapper">
+                                                        <canvas id="CustomerRatingwiseOwned"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="far fa-chart-bar"></i>
+                                    Maintenance Data
+                                </h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>                                    
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-wrapper">
+                                    <canvas id="MaintenanceData"></canvas>
+                                </div>
+                            </div>
+                            <!-- /.card-body-->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title">User Data</h5>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="chart-wrapper">
+                                    <canvas id="UserData"></canvas>
+                                </div>
+                            </div>
+                            <!-- ./card-body -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <!-- <footer class="main-footer">
+        <strong>Copyright &copy; 2019-2020
+            <a href="http://cyberhotels.net/">cyberhotels.net</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer> -->
+</div>
+<!-- ./wrapper -->

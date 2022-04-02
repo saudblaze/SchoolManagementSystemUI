@@ -1,0 +1,99 @@
+<div class="login-page" style="min-height: 512.391px;">
+
+    <div class="login-box" bis_skin_checked="1">
+      <div class="login-logo" bis_skin_checked="1">
+        <!-- <a href="../../index2.html">
+          <b>Cyber</b>Hotel</a> -->
+          <img src="../../../assets/images/logo.png" style="margin-top: 30px; height: 150px;width: 150px;">
+      </div>
+      <!-- /.login-logo -->
+      <div class="card" bis_skin_checked="1">
+        <div class="card-body login-card-body" bis_skin_checked="1">
+          <p class="login-box-msg">Please login into your account.</p>
+  
+          <form [formGroup]="LoginForm">
+            <div class="input-group mb-3" bis_skin_checked="1">
+              <input type="text" class="form-control" placeholder="Registered Email" [(ngModel)]="LoginFormModel.Username" formControlName="username"
+                [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+              <div class="input-group-append" bis_skin_checked="1">
+                <div class="input-group-text" bis_skin_checked="1">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+  
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+              </div>
+  
+            </div>
+            <div class="input-group mb-3" bis_skin_checked="1">
+              <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" placeholder="Password" [(ngModel)]="LoginFormModel.Password" formControlName="password"
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div class="input-group-append" bis_skin_checked="1">
+                <div class="input-group-text" bis_skin_checked="1">
+                  <!-- <span class="fas fa-eye"></span> -->
+  
+                  <span class="fas" [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                      }"
+                      (click)="toggleFieldTextType()">
+                  </span>
+  
+                </div>
+              </div>
+  
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+            </div>
+            <!-- <div class="row" bis_skin_checked="1">
+              <div class="col-12" bis_skin_checked="1">              
+              </div>
+            </div> -->
+  
+            <div class="row">
+              <div class="col-8">
+                <div class="icheck-primary">
+                  <input type="checkbox" id="remember" [ngModelOptions]="{standalone: true}" [(ngModel)]="StayLoggedIn" name="StayLoggedIn">
+                  <label for="remember">
+                    Remember Me
+                  </label>
+                </div>
+              </div>
+              <div class="col-4">
+                <button type="submit" (click)="SignIn()" class="btn btn-primary btn-block">Sign In</button>              
+              </div>            
+            </div>
+  
+          </form>
+  
+          <div class="social-auth-links text-center mb-3" bis_skin_checked="1">
+            <p>Don't have an account?</p>
+            <a routerLink="/Registration" class="btn btn-block btn-secondary" style="color: #fff;">
+              Sign Up
+            </a>
+          </div>
+          <!-- /.social-auth-links -->
+  
+          
+  
+          <div class="social-auth-links text-center mb-3" bis_skin_checked="1">
+            <!-- <p>Video Library</p> -->
+            <a routerLink="/ContactUsGuest" class="btn btn-block btn-info" style="color: #fff;">
+              Contact Us
+            </a>
+          </div>
+  
+          <p class="mb-1">
+            <a routerLink="/ForgotPassword">I forgot my password</a>
+          </p>
+            <!-- <p class="mb-0">
+              <a href="register.html" class="text-center">I forgot my username</a>
+            </p> -->
+        </div>
+        <!-- /.login-card-body -->
+      </div>
+    </div>
+  
+  </div>
