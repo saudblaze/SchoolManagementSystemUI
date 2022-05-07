@@ -99,7 +99,6 @@ export class RegistrationComponent implements OnInit {
     }
   
     Register() {
-      debugger
       this.submitted = true;
   
   

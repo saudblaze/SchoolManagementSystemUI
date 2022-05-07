@@ -51,7 +51,6 @@ export class TeacherComponent  implements OnInit {
   }
 
   SearchHotel() {
-    debugger
     this.dDatatable.draw();
   }
   ClearSearch() {

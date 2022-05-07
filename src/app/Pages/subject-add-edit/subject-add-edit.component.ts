@@ -29,7 +29,6 @@ export class SubjectAddEditComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      debugger
       this.Leadid = this.route.snapshot.paramMap.get("id");
       if (this.Leadid) {
         this.GetStateById(this.Leadid);
@@ -86,7 +85,6 @@ export class SubjectAddEditComponent implements OnInit {
     }  
   
     SubmitHotel() {
-      debugger
       this.submitted = true;
       // Returns false if form is invalid
       if (this.StateForm.invalid) {

@@ -26,6 +26,7 @@
     "datatables.net-dt": "^1.10.22",
     "icheck-bootstrap": "^3.0.1",
     "jquery": "^3.5.1",
+    "moment": "^2.29.3",
     "ng-multiselect-dropdown": "^0.2.10",
     "ng2-charts": "^2.4.2",
     "ngx-bootstrap": "^6.2.0",

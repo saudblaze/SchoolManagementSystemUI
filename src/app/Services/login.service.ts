@@ -37,7 +37,6 @@ export class LoginService {
             let user = response;//.json();
             if (user && user.access_token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                debugger
                 localStorage.setItem('TokenData', JSON.stringify(user));
                 localStorage.setItem('UserId', user.UserId);
                 localStorage.setItem('FirstName', user.FirstName);

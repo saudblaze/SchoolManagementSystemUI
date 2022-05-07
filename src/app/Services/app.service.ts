@@ -52,7 +52,6 @@ export class AppService {
   }
 
   PostToken(ControllerName: any, ActionName: any, Data: any) {
-    debugger
     const headers = this.createAuthorizationHeader();
     return this.http.post(environment.apiUrl + 'api/' + ControllerName + '/' + ActionName, Data, {
       headers

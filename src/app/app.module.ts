@@ -43,7 +43,7 @@ import { BatchAddEditComponent } from './Pages/batch-add-edit/batch-add-edit.com
 import { RolePermissionsComponent } from './Pages/role-permissions/role-permissions.component';
 import { RolePermissionsAddEditComponent } from './Pages/role-permissions-add-edit/role-permissions-add-edit.component';
 import { PhoneMaskDirective } from './Directives/phone-mask-directive';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -80,6 +80,7 @@ import { PhoneMaskDirective } from './Directives/phone-mask-directive';
     HttpClientModule,
     HttpModule    ,
     NgMultiSelectDropDownModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     LoaderService,
