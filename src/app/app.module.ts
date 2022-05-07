@@ -40,6 +40,9 @@ import { SubjectComponent } from './Pages/subject/subject.component';
 import { BatchComponent } from './Pages/batch/batch.component';
 import { SubjectAddEditComponent } from './Pages/subject-add-edit/subject-add-edit.component';
 import { BatchAddEditComponent } from './Pages/batch-add-edit/batch-add-edit.component';
+import { RolePermissionsComponent } from './Pages/role-permissions/role-permissions.component';
+import { RolePermissionsAddEditComponent } from './Pages/role-permissions-add-edit/role-permissions-add-edit.component';
+import { PhoneMaskDirective } from './Directives/phone-mask-directive';
 
 
 @NgModule({
@@ -62,7 +65,10 @@ import { BatchAddEditComponent } from './Pages/batch-add-edit/batch-add-edit.com
     SubjectComponent,
     BatchComponent,
     SubjectAddEditComponent,
-    BatchAddEditComponent    
+    BatchAddEditComponent,
+    RolePermissionsComponent,
+    RolePermissionsAddEditComponent ,
+    PhoneMaskDirective
   ],
   imports: [
     BrowserModule,
@@ -79,6 +85,9 @@ import { BatchAddEditComponent } from './Pages/batch-add-edit/batch-add-edit.com
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true },
     CookieService,
+  ],
+  exports: [
+    PhoneMaskDirective
   ],
   bootstrap: [AppComponent]
 })

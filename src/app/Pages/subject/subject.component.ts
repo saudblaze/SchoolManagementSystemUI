@@ -18,13 +18,13 @@ export class SubjectComponent implements OnInit {
   dtOption: any = {};
 
   StateToBeDeleted = {
-    StateId: 0,
-    StateName: "",    
+    SubjectId: 0,
+    SubjectName: "",    
     Abbreviations:""
   };
   
   StateSearchForm = {
-    StateName: ""    ,
+    SubjectName: ""    ,
     Abbreviations:""
   }
   errorMessage;
@@ -44,7 +44,7 @@ export class SubjectComponent implements OnInit {
   }
 
   GetStateById(Id) {
-    this.router.navigate(['StateAddEdit', Id]);
+    this.router.navigate(['SubjectAddEdit', Id]);
   }
 
   SearchHotel() {
@@ -52,7 +52,7 @@ export class SubjectComponent implements OnInit {
   }
   ClearSearch() {
     this.StateSearchForm = {
-      StateName: ""      ,
+      SubjectName: ""      ,
       Abbreviations: ""      
     }
     this.dDatatable.draw();
@@ -66,15 +66,15 @@ export class SubjectComponent implements OnInit {
     $('#myModal').modal('hide');
   }
   DeleteHotel() {
-    this.appService.GetWithToken("State", "DeleteStateById?Id=" + this.StateToBeDeleted.StateId + "&UpdatedBy=" + localStorage.getItem("UserId"))
+    this.appService.GetWithToken("Subject", "DeleteSubjectById?Id=" + this.StateToBeDeleted.SubjectId + "&UpdatedBy=" + localStorage.getItem("UserId"))
 
       .subscribe(
         (res: any) => {
           var objResult = res//.json()
           if (objResult && objResult.ErrorNumber == "0") {
             this.StateToBeDeleted = {
-              StateId: 0,
-              StateName: "",   
+              SubjectId: 0,
+              SubjectName: "",   
               Abbreviations:""  
             };
             $('#myModal').modal('hide');
@@ -94,7 +94,6 @@ export class SubjectComponent implements OnInit {
 
   GetStateList() {
 
-    debugger
     let me = this;
     this.dtOption = {
       "searching": false,
@@ -106,7 +105,7 @@ export class SubjectComponent implements OnInit {
       // },
       "createdRow": function (row, data, dataIndex) {
         $(".btnEdit", $(row)).click(() => {
-          me.GetStateById(data.StateId);
+          me.GetStateById(data.SubjectId);
         });
         $(".btnDelete", $(row)).click(() => {
           me.DeleteStateConfirmation(data);
@@ -138,19 +137,19 @@ export class SubjectComponent implements OnInit {
           // data.StateName = me.StateSearchForm.StateName;
           // data.Abbreviations = me.StateSearchForm.Abbreviations;     
 
-           data.StateName = "";
-           data.Abbreviations = "";             
+           data.SubjectName = me.StateSearchForm.SubjectName;
+           data.Abbreviations = me.StateSearchForm.Abbreviations;             
         }
       },
       "columns": [
         {
           "title": "ID",
-          "data": "StateId",
+          "data": "SubjectId",
           "class": "colwidth50"     
         },
         {
-          "title": "State",
-          "data": "StateName",
+          "title": "Subject Name",
+          "data": "SubjectName",
           "class": "colwidth300"      
         },
         {
@@ -160,17 +159,17 @@ export class SubjectComponent implements OnInit {
         },
         {
           "title": "Action",
-          "data": "StaffId",
+          "data": "SubjectId",
           "render": function (data) {
             var ret = '';
-            // if (me.SystemSettings.objState.Update)
-            // {
-            //   ret = "<button type='button' Id='" + data + "' class='btn btn-success btn-xs btnEdit'><i class='fa fa-edit'></i> Edit</button> ";
-            // }            
-            // if (me.SystemSettings.objState.Delete)
-            // {
-            //   ret += "<button type='button' Id='" + data + "' class='btn btn-danger btn-xs btnDelete'><i class='fas fa-trash'></i> Delete</button>";
-            // } 
+            if (me.SystemSettings.objSubject.Update)
+            {
+              ret = "<button type='button' Id='" + data + "' class='btn btn-success btn-xs btnEdit'><i class='fa fa-edit'></i> Edit</button> ";
+            }            
+            if (me.SystemSettings.objSubject.Delete)
+            {
+              ret += "<button type='button' Id='" + data + "' class='btn btn-danger btn-xs btnDelete'><i class='fas fa-trash'></i> Delete</button>";
+            } 
             return ret;
           },
           "class": "noExport"

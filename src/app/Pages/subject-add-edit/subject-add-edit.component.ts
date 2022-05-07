@@ -29,6 +29,7 @@ export class SubjectAddEditComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+      debugger
       this.Leadid = this.route.snapshot.paramMap.get("id");
       if (this.Leadid) {
         this.GetStateById(this.Leadid);
@@ -57,7 +58,7 @@ export class SubjectAddEditComponent implements OnInit {
     }
   
     BackToList() {
-      this.router.navigate(['Subject']);
+      this.router.navigate(['Teacher']);
     }
   
     
@@ -67,7 +68,7 @@ export class SubjectAddEditComponent implements OnInit {
     }
   
     GetStateById(Id){
-      this.appService.GetWithToken("State", "GetStateById?Id="+Id)
+      this.appService.GetWithToken("Subject", "GetSubjectById?Id="+Id)
   
         .subscribe(
           (res: any) => {          

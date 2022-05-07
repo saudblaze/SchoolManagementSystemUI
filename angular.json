@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SchoolManagmentSystem": {
+    "CyverHotelNew": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/SchoolManagmentSystem",
+            "outputPath": "dist/CyverHotelNew",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,12 +27,21 @@
               "node_modules/ngx-toastr/toastr.css",
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
+
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+
+              "node_modules/select2/dist/css/select2.css",
+              "node_modules/select2/dist/js/select2.js",
+
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
               "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "node_modules/admin-lte/docs_html/assets/css/adminlte.css",
               "node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
-              "node_modules/admin-lte/plugins/daterangepicker/daterangepicker.css"           
+              "node_modules/video.js/dist/video-js.min.css",
+              "node_modules/admin-lte/plugins/daterangepicker/daterangepicker.css"
+              
+              
             ],
             "scripts": [
               "node_modules/admin-lte/plugins/jquery/jquery.js",
@@ -46,10 +55,13 @@
               "node_modules/admin-lte/plugins/summernote/summernote-bs4.min.js",
               "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
               "node_modules/admin-lte/dist/js/adminlte.js",
-              
+              "node_modules/admin-lte/dist/js/demo.js",
               
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js"
+
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/video.js/dist/video.min.js"              
+              
             ]
           },
           "configurations": {
@@ -86,18 +98,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "SchoolManagmentSystem:build"
+            "browserTarget": "CyverHotelNew:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "SchoolManagmentSystem:build:production"
+              "browserTarget": "CyverHotelNew:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SchoolManagmentSystem:build"
+            "browserTarget": "CyverHotelNew:build"
           }
         },
         "test": {
@@ -134,15 +146,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "SchoolManagmentSystem:serve"
+            "devServerTarget": "CyverHotelNew:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "SchoolManagmentSystem:serve:production"
+              "devServerTarget": "CyverHotelNew:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "SchoolManagmentSystem"
+    }
+  },
+  "defaultProject": "CyverHotelNew"
 }

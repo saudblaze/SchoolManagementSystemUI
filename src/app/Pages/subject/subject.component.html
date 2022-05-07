@@ -48,8 +48,8 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="form-group">
-                                                <label for="StateName">Subject name</label>
-                                                <input type="text" id="StateName" class="form-control" [(ngModel)]="StateSearchForm.StateName" name="StateName">                                                
+                                                <label for="SubjectName">Subject name</label>
+                                                <input type="text" id="SubjectName" class="form-control" [(ngModel)]="StateSearchForm.SubjectName" name="SubjectName">                                                
                                             </div>
                                         </div>  
                                         <div class="col-3">
@@ -115,7 +115,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <p>Are you sure you want to delete this '{{StateToBeDeleted.StateName}}' from Database ?</p>
+              <p>Are you sure you want to delete this '{{ StateToBeDeleted.SubjectName }}' from Database ?</p>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" (click)="CloseModal();">Close</button>
