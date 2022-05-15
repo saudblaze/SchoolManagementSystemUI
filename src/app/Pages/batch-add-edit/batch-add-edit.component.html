@@ -93,6 +93,36 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <!-- <div class="col-6">
+                                                <div class="form-group">
+                                                    <label>Multiple</label>
+                                                    <select class="form-control select2" multiple="multiple" id="ddlSubject" data-placeholder="Select a State" style="width: 100%;">
+                                                      <option>Alabama</option>
+                                                      <option>Alaska</option>
+                                                    <option>California</option>
+                                                      <option>Delaware</option>
+                                                      <option>Tennessee</option>
+                                                      <option>Texas</option>
+                                                      <option>Washington</option>
+                                                    </select>
+                                                </div>
+                                                </div> -->
+
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label>Multiple</label>
+                                                        <ng-multiselect-dropdown [(ngModel)]="selectedItems" [settings]="dropdownSettings" [placeholder]="'Select Subject'" [data]="SubjectList"
+                                                        (onSelect)="onItemSelect($event)" [ngModelOptions]="{standalone: true}"
+                                                        (onSelectAll)="onSelectAll($event)" [ngClass]="{ 'is-invalid': submitted && selectedItems.length == 0 }">
+                                                    </ng-multiselect-dropdown>
+                                                    <div *ngIf="submitted && selectedItems.length == 0" class="invalid-feedback">
+                                                        <div>Subject is required</div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                        </div>
                                         
                                         <div class="row" style="text-align: right">
                                             <div class="col-sm-12">

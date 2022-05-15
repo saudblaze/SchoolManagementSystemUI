@@ -156,16 +156,21 @@ export class BatchComponent implements OnInit {
         }
       },
       "columns": [
+        // {
+        //   "title": "ID",
+        //   "data": "BatchId",
+        //   "class": "colwidth50"     
+        // },
         {
-          "title": "ID",
-          "data": "BatchId",
-          "class": "colwidth50"     
-        },
-        {
-          "title": "Batch Name",
+          "title": "BatchName",
           "data": "BatchName",
           "class": "colwidth300"      
         },
+        {
+          "title": "Subjects",
+          "data": "SelectedSubjectsList",
+          "class": "colwidth300"     
+        }, 
         {
           "title": "StartDate",
           "data": "StartDate",

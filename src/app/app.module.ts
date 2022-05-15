@@ -81,6 +81,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     HttpModule    ,
     NgMultiSelectDropDownModule.forRoot(),
     BsDatepickerModule.forRoot()
+   
   ],
   providers: [
     LoaderService,
