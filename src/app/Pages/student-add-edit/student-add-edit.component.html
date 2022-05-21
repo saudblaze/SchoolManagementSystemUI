@@ -1,1 +1,214 @@
-<p>student-add-edit works!</p>
+<div class="wrapper">
+
+    <!-- <app-navbar></app-navbar> -->
+
+    <app-aside></app-aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h1 class="m-0 text-dark">Student</h1>
+                    </div>
+                    <div class="col-sm-2" style="text-align: right">
+                        <button type="button" class="btn btn-block btn-primary" (click)="BackToList();">Back To List</button>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+                <div >
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        Add Student
+                                    </h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+
+                                    <form [formGroup]="StudentForm">
+
+                                        <div class="row">
+
+                                            <div class="col-4">
+
+                                                <div class="form-group">
+                                                    <label for="StudentName">Student Name</label>
+                                                    <input type="text" id="StudentName" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentName" formControlName="StudentName" [ngClass]="{ 'is-invalid': submitted && f.StudentName.errors }">
+                                                    <div *ngIf="submitted && f.StudentName.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentName.errors.required">Subject name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+
+                                                <div class="form-group">
+                                                    <label for="StudentFatherName">Father Name</label>
+                                                    <input type="text" id="StudentFatherName" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentFatherName" formControlName="StudentFatherName" [ngClass]="{ 'is-invalid': submitted && f.StudentFatherName.errors }">
+                                                    <div *ngIf="submitted && f.StudentFatherName.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentFatherName.errors.required">StudentFatherName name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+
+                                                <div class="form-group">
+                                                    <label for="StudentSurName">Sur Name</label>
+                                                    <input type="text" id="StudentSurName" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentSurName" formControlName="StudentSurName" [ngClass]="{ 'is-invalid': submitted && f.StudentSurName.errors }">
+                                                    <div *ngIf="submitted && f.StudentSurName.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentSurName.errors.required">StudentSurName name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="StudentPhone">Student Phone</label>
+                                                    <input type="text" id="StudentPhone" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentPhone" formControlName="StudentPhone" [ngClass]="{ 'is-invalid': submitted && f.StudentPhone.errors }">
+                                                    <div *ngIf="submitted && f.StudentPhone.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentPhone.errors.required">StudentPhone name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="StudentWhatsapp">StudentWhatsapp</label>
+                                                    <input type="text" id="StudentWhatsapp" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentWhatsapp" formControlName="StudentWhatsapp" [ngClass]="{ 'is-invalid': submitted && f.StudentWhatsapp.errors }">
+                                                    <div *ngIf="submitted && f.StudentWhatsapp.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentWhatsapp.errors.required">StudentWhatsapp name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="BatchId">BatchId</label>
+                                                    <input type="text" id="BatchId" class="form-control" [(ngModel)]="StudentRegistrationForm.BatchId" formControlName="BatchId" [ngClass]="{ 'is-invalid': submitted && f.BatchId.errors }">
+                                                    <div *ngIf="submitted && f.BatchId.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.BatchId.errors.required">BatchId name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="FatherPhone">Father Phone</label>
+                                                    <input type="text" id="FatherPhone" class="form-control" [(ngModel)]="StudentRegistrationForm.FatherPhone" formControlName="FatherPhone" [ngClass]="{ 'is-invalid': submitted && f.FatherPhone.errors }">
+                                                    <div *ngIf="submitted && f.FatherPhone.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.FatherPhone.errors.required">FatherPhone name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="FatherWhatsapp">FatherWhatsapp</label>
+                                                    <input type="text" id="FatherWhatsapp" class="form-control" [(ngModel)]="StudentRegistrationForm.FatherWhatsapp" formControlName="FatherWhatsapp" [ngClass]="{ 'is-invalid': submitted && f.FatherWhatsapp.errors }">
+                                                    <div *ngIf="submitted && f.FatherWhatsapp.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.FatherWhatsapp.errors.required">FatherWhatsapp name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="JoiningDate">JoiningDate</label>
+                                                    <input type="text" id="JoiningDate" class="form-control" [(ngModel)]="StudentRegistrationForm.JoiningDate" formControlName="JoiningDate" [ngClass]="{ 'is-invalid': submitted && f.JoiningDate.errors }">
+                                                    <div *ngIf="submitted && f.JoiningDate.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.JoiningDate.errors.required">JoiningDate name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="StudentAddress1">StudentAddress1</label>
+                                                    <input type="text" id="StudentAddress1" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentAddress1" formControlName="StudentAddress1" [ngClass]="{ 'is-invalid': submitted && f.StudentAddress1.errors }">
+                                                    <div *ngIf="submitted && f.StudentAddress1.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentAddress1.errors.required">StudentAddress1 name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="StudentAddress2">StudentAddress2</label>
+                                                    <input type="text" id="StudentAddress2" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentAddress2" formControlName="StudentAddress2" [ngClass]="{ 'is-invalid': submitted && f.StudentAddress2.errors }">
+                                                    <div *ngIf="submitted && f.StudentAddress2.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentAddress2.errors.required">StudentAddress2 name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="StudentSchoolName">StudentSchoolName</label>
+                                                    <input type="text" id="StudentSchoolName" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentSchoolName" formControlName="StudentSchoolName" [ngClass]="{ 'is-invalid': submitted && f.StudentSchoolName.errors }">
+                                                    <div *ngIf="submitted && f.StudentSchoolName.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentSchoolName.errors.required">StudentSchoolName name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="StudentStandard">StudentStandard</label>
+                                                    <input type="text" id="StudentAddress1" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentStandard" formControlName="StudentStandard" [ngClass]="{ 'is-invalid': submitted && f.StudentStandard.errors }">
+                                                    <div *ngIf="submitted && f.StudentStandard.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.StudentStandard.errors.required">StudentStandard name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="row" style="text-align: right">
+                                            <div class="col-sm-12">
+                                                <button type="submit" class="btn btn-primary" (click)="SubmitHotel()" style="margin-right: 10px;">Submit</button>
+                                                <button type="submit" class="btn btn-default" (click)="ClearForm()">Clear</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>   
+    
+</div>
+<!-- ./wrapper -->
