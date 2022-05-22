@@ -104,12 +104,25 @@
                                                 </div>
                                             </div>
                                             <div class="col-4">
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <label for="BatchId">BatchId</label>
                                                     <input type="text" id="BatchId" class="form-control" [(ngModel)]="StudentRegistrationForm.BatchId" formControlName="BatchId" [ngClass]="{ 'is-invalid': submitted && f.BatchId.errors }">
                                                     <div *ngIf="submitted && f.BatchId.errors" class="invalid-feedback">
                                                         <div *ngIf="f.BatchId.errors.required">BatchId name is required</div>
                                                     </div>
+                                                </div> -->
+                                                <div class="form-group">
+                                                    <label for="SelectedBatchID">Batch</label>
+                                                    <select class="form-control select2" [(ngModel)]="StudentRegistrationForm.BatchId" [ngClass]="{ 'is-invalid': submitted && f.SelectedBatchID.errors }"
+                                                        id="dropdownBatch" formControlName="SelectedBatchID">
+                                                        <option [value]="item.BatchId" *ngFor="let item of BatchList">
+                                                            {{item.BatchName}}
+                                                        </option>
+                                                    </select>
+                                                    <div *ngIf="submitted && f.SelectedBatchID.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.SelectedBatchID.errors.required">State is required</div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -136,7 +149,8 @@
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label for="JoiningDate">JoiningDate</label>
-                                                    <input type="text" id="JoiningDate" class="form-control" [(ngModel)]="StudentRegistrationForm.JoiningDate" formControlName="JoiningDate" [ngClass]="{ 'is-invalid': submitted && f.JoiningDate.errors }">
+                                                    <input type="text" id="JoiningDate" [(ngModel)]="JoiningDate" placeholder="Joining Date" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }" [minDate]="minDate" [ngModelOptions]="{standalone: true}" >
+                                                    <!-- <input type="text" id="JoiningDate" class="form-control" [(ngModel)]="JoiningDate" formControlName="JoiningDate" [ngClass]="{ 'is-invalid': submitted && f.JoiningDate.errors }"> -->
                                                     <div *ngIf="submitted && f.JoiningDate.errors" class="invalid-feedback">
                                                         <div *ngIf="f.JoiningDate.errors.required">JoiningDate name is required</div>
                                                     </div>
@@ -180,6 +194,23 @@
                                                     <input type="text" id="StudentAddress1" class="form-control" [(ngModel)]="StudentRegistrationForm.StudentStandard" formControlName="StudentStandard" [ngClass]="{ 'is-invalid': submitted && f.StudentStandard.errors }">
                                                     <div *ngIf="submitted && f.StudentStandard.errors" class="invalid-feedback">
                                                         <div *ngIf="f.StudentStandard.errors.required">StudentStandard name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="HotelLogoFileName">Upload Hotel Logo</label>
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            <input #fileInput (click)="fileInput.value = null" type="file" class="custom-file-input" id="HotelLogoFileName" (change)="onFileChange($event)">
+                                                            <label class="custom-file-label" for="HotelLogoFileName">Choose file</label>
+                                                        </div>
+                                                    </div>
+                                                    <div style="background-color: aliceblue" *ngIf="StudentRegistrationForm.StudentFileName">
+                                                        <span class="">{{StudentRegistrationForm.StudentFileName}}</span>
+                                                        <button type="button" class="close" (click)="ClearImage()">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>

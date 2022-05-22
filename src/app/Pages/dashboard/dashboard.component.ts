@@ -76,8 +76,7 @@ export class DashboardComponent implements OnInit {
   }
   GetAllDashboardCount() {
     var  objSendData = {
-      "Role" : localStorage.getItem("Role"),
-      "SeesionHotelID" : localStorage.getItem("HotelID")
+      "Role" : localStorage.getItem("Role")      
     }
     
 

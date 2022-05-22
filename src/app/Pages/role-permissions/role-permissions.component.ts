@@ -23,12 +23,10 @@ export class RolePermissionsComponent implements OnInit {
   dtOption: any = {};
 
   RolePermissionsToBeDeleted = {
-    Id: 0,
-    HotelID: "",
+    Id: 0,    
   };
 
   RolePermissionsSearchForm = {
-    HotelID: "",
     ModuleID: "",
     RoleID: ""
   }
@@ -38,8 +36,7 @@ export class RolePermissionsComponent implements OnInit {
   dDatatable: any;
 
 
-  HotelList = [];
-  SelectedHotelID = "";
+  
   ModuleList = [];
   SelectedModuleID = "";
   RoleList = [];
@@ -54,12 +51,11 @@ export class RolePermissionsComponent implements OnInit {
   }
 
   GetAllRolePermissionDropdown() {
-    this.appService.GetWithToken("RolePermissions", "GetAllRolePermissionDropdown?Role=" + localStorage.getItem("Role").replace(" ","_") + "&HotelID=" + localStorage.getItem("HotelID"))
+    this.appService.GetWithToken("RolePermissions", "GetAllRolePermissionDropdown?Role=" + localStorage.getItem("Role").replace(" ","_") )
       .subscribe(
         (res: any) => {
           var objResult = res//.json()
           if (objResult && objResult.ErrorNumber == "0") {
-            this.HotelList = objResult.Data.objHotel;
             this.ModuleList = objResult.Data.objModule;
             this.RoleList = objResult.Data.objRole;
             this.SetChangeEvent();
@@ -76,17 +72,6 @@ export class RolePermissionsComponent implements OnInit {
   SetChangeEvent() {
     var that = this;
     setTimeout(() => {
-      jquery("#dropdownHotel").on("change", function () {
-        setTimeout(() => {
-          if ($(this).val()) {
-            that.SelectedHotelID = $(this).val();
-          }
-          else {
-            this.SelectedHotelID = "0";
-          }
-        }, 500);
-      });
-
       jquery("#dropdownRole").on("change", function () {
         setTimeout(() => {
           if ($(this).val()) {
@@ -122,12 +107,12 @@ export class RolePermissionsComponent implements OnInit {
     location.reload();
     //this.router.navigate(['RolePermissions']);
 
-    // this.RolePermissionsSearchForm.HotelID = "";
+    
     // this.RolePermissionsSearchForm.ModuleID = "";
     // this.RolePermissionsSearchForm.RoleID = "";
     // this.SelectedModuleID = "";
     // this.SelectedRoleID = "";
-    // this.SelectedHotelID = "";    
+    
 
     // this.dDatatable.draw();
   }
@@ -147,8 +132,7 @@ export class RolePermissionsComponent implements OnInit {
           var objResult = res//.json()
           if (objResult && objResult.ErrorNumber == "0") {
             this.RolePermissionsToBeDeleted = {
-              Id: 0,
-              HotelID: "",
+              Id: 0              
             };
             $('#myModal').modal('hide');
             this.notifyService.showError("Maintenance status successfully delete.", "")
@@ -206,7 +190,7 @@ export class RolePermissionsComponent implements OnInit {
         "url": environment.apiUrl + "api/RolePermissions/GetRolePermissionList",
         "type": "POST",
         "data": function (data) {
-          data.HotelID = me.SelectedHotelID;
+          
           data.ModuleID = me.SelectedModuleID;
           data.RoleID = me.SelectedRoleID;
         }
@@ -216,10 +200,7 @@ export class RolePermissionsComponent implements OnInit {
         //   "title": "ID",
         //   "data": "Id"
         // },
-        {
-          "title": "Hotel",
-          "data": "HotelName"
-        },
+        
         {
           "title": "Module",
           "data": "ModuleName"

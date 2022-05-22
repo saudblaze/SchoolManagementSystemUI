@@ -20,7 +20,6 @@ export class RolePermissionsAddEditComponent implements OnInit {
   errorMessage;
   RolePermissionsRegistrationForm = {
     Id: 0,
-    HotelID: "",
     ModuleID: "",
     RoleID: "",
     View: false,
@@ -38,8 +37,6 @@ export class RolePermissionsAddEditComponent implements OnInit {
 
   submitted = false;
   Leadid: any;
-  HotelList = [];
-  SelectedHotelID = "";
   ModuleList = [];
   SelectedModuleID = "";
   RoleList = [];
@@ -62,7 +59,6 @@ export class RolePermissionsAddEditComponent implements OnInit {
 
     this.RolePermissionsForm = this.formBuilder.group(
       {
-        SelectedHotelID: ["", [Validators.required]],
         SelectedModuleID: ["", [Validators.required]],
         SelectedRoleID: ["", [Validators.required]]
       },
@@ -88,20 +84,6 @@ export class RolePermissionsAddEditComponent implements OnInit {
   SetChangeEvent() {
     var that = this;
     setTimeout(() => {
-      jquery("#dropdownHotel").on("change", function () {
-        setTimeout(() => {
-          if ($(this).val()) {
-            that.SelectedHotelID = $(this).val();
-            that.f.SelectedHotelID.markAsTouched();
-            that.f.SelectedHotelID.markAsDirty();
-            that.f.SelectedHotelID.setValue('valid', true);
-          }
-          else {
-            this.SelectedHotelID = "0";
-          }
-        }, 500);
-      });
-
       jquery("#dropdownRole").on("change", function () {
         setTimeout(() => {
           if ($(this).val()) {
@@ -133,7 +115,7 @@ export class RolePermissionsAddEditComponent implements OnInit {
   }
 
   ClearForm() {
-    this.RolePermissionsRegistrationForm.HotelID = "";
+    
   }
 
   GetRolePermissionById(Id) {
@@ -144,8 +126,7 @@ export class RolePermissionsAddEditComponent implements OnInit {
           var objResult = res//.json()
           if (objResult && objResult.ErrorNumber == "0") {
             this.RolePermissionsRegistrationForm.Id = objResult.Data.Id;
-            this.RolePermissionsRegistrationForm.HotelID = objResult.Data.HotelID;
-            this.SelectedHotelID = objResult.Data.HotelID;
+            
 
             this.RolePermissionsRegistrationForm.ModuleID = objResult.Data.ModuleID;
             this.SelectedModuleID = objResult.Data.ModuleID;
@@ -174,7 +155,6 @@ export class RolePermissionsAddEditComponent implements OnInit {
     }
     var objStatus = {
       "Id": this.RolePermissionsRegistrationForm.Id,
-      "HotelID": this.SelectedHotelID,
       "ModuleID": this.SelectedModuleID,
       "RoleID": this.SelectedRoleID,
       "View": this.SelectedView,
@@ -223,12 +203,12 @@ export class RolePermissionsAddEditComponent implements OnInit {
   }
 
   GetAllRolePermissionDropdown() {
-    this.appService.GetNoToken("RolePermissions", "GetAllRolePermissionDropdown?Role=" + localStorage.getItem("Role").replace(" ","_") + "&HotelID=" + localStorage.getItem("HotelID"))
+    this.appService.GetNoToken("RolePermissions", "GetAllRolePermissionDropdown?Role=" + localStorage.getItem("Role").replace(" ","_") )
       .subscribe(
         (res: any) => {
           var objResult = res//.json()
           if (objResult && objResult.ErrorNumber == "0") {
-            this.HotelList = objResult.Data.objHotel;
+            debugger
             this.ModuleList = objResult.Data.objModule;
             this.RoleList = objResult.Data.objRole;
             this.SetChangeEvent();

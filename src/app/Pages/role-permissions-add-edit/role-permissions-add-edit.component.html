@@ -50,24 +50,6 @@
 
                                     <form [formGroup]="RolePermissionsForm">
 
-                                        <!-- <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="SelectedHotelID">Hotel Name</label>
-                                                    <select class="form-control select2" [(ngModel)]="RolePermissionsRegistrationForm.HotelID" [ngClass]="{ 'is-invalid': submitted && f.SelectedHotelID.errors }"
-                                                        id="dropdownHotel" formControlName="SelectedHotelID">
-                                                        <option value="0">All Hotels</option>
-                                                        <option [value]="item.Id" *ngFor="let item of HotelList">
-                                                            {{item.Name}}
-                                                        </option>
-                                                    </select>
-                                                    <div *ngIf="submitted && f.SelectedHotelID.errors" class="invalid-feedback">
-                                                        <div *ngIf="f.SelectedHotelID.errors.required">Hotel is required</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
-
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group">
@@ -75,30 +57,16 @@
                                                     <table class="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
-                                                                <th class="tabletdPermisionDrop">Hotel</th>
                                                                 <th class="tabletdPermisionDrop">Module</th>
                                                                 <th class="tabletdPermisionDrop">Role</th>
                                                                 <th class="tabletdPermision">View</th>
                                                                 <th class="tabletdPermision">Add</th>
                                                                 <th class="tabletdPermision">Update</th>
                                                                 <th class="tabletdPermision">Delete</th>
-
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td>
-                                                                    <select class="form-control select2" [(ngModel)]="RolePermissionsRegistrationForm.HotelID" [ngClass]="{ 'is-invalid': submitted && f.SelectedHotelID.errors }"
-                                                                        id="dropdownHotel" formControlName="SelectedHotelID">
-                                                                        <!-- <option value="0">All Hotels</option> -->
-                                                                        <option [value]="item.Id" *ngFor="let item of HotelList">
-                                                                            {{item.Name}}
-                                                                        </option>
-                                                                    </select>
-                                                                    <div *ngIf="submitted && f.SelectedHotelID.errors" class="invalid-feedback">
-                                                                        <div *ngIf="f.SelectedHotelID.errors.required">Hotel is required</div>
-                                                                    </div>
-                                                                </td>
                                                                 <td>
                                                                     <select class="form-control select2" [(ngModel)]="RolePermissionsRegistrationForm.ModuleID" [ngClass]="{ 'is-invalid': submitted && f.SelectedModuleID.errors }"
                                                                         id="dropdownModule" formControlName="SelectedModuleID">

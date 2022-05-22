@@ -46,18 +46,7 @@
                                 <div class="card-body">
                                     <!-- <form [formGroup]="RolePermissionsSearchForm"> -->
                                         <div class="row">
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <label for="SelectedHotelID">Hotel Name</label>
-                                                    <select class="form-control select2" id="dropdownHotel" name="SelectedHotelID" [(ngModel)]="RolePermissionsSearchForm.HotelID"
-                                                        data-placeholder="Select a Hotel">
-                                                        <!-- <option value="0">Select a Hotel</option> -->
-                                                        <option [value]="item.Id" *ngFor="let item of HotelList">
-                                                            {{item.Name}}
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <label for="SelectedRoleID">Role Name</label>
