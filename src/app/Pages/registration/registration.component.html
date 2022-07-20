@@ -1,48 +1,54 @@
-<div class="hold-transition register-page" >
+<div class="hold-transition register-page">
 
     <div class="register-box" bis_skin_checked="1" style="width: 90%">
         <div class="col-12 col-sm-12">
             <div class="card card-primary card-tabs">
-                <div class="card-body" >
-                    
-                            <div class="card" bis_skin_checked="1">
-                                <div class="card-body register-card-body" bis_skin_checked="1">
-                                    <p class="login-box-msg">Create a Quinify user.</p>
-                                    <form [formGroup]="registerForm">
+                <div class="card-body">
 
-                                        <div class="row" style="margin-top: 10px">
+                    <div class="card" bis_skin_checked="1">
+                        <div class="card-body register-card-body" bis_skin_checked="1">
+                            <p class="login-box-msg">Create a Master class user.</p>
+                            <form [formGroup]="registerForm">
 
-                                            <div class="col-4">
-                                                <input type="text" autocomplete="new-FirstName" placeholder="First name" [(ngModel)]="RegistrationForm.FirstName" formControlName="firstName" class="form-control"
-                                                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-                                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <input type="text" autocomplete="new-LastName" placeholder="Last Name" [(ngModel)]="RegistrationForm.LastName" formControlName="LastName" class="form-control"
-                                                    [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" />
-                                                <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
-                                                    <div *ngIf="f.LastName.errors.required">Last Name is required</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <input type="email" autocomplete="new-Email" placeholder="Email" [(ngModel)]="RegistrationForm.Email" formControlName="Email" class="form-control"
-                                                    [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
-                                                <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
-                                                    <div *ngIf="f.Email.errors.required">Email is required</div>
-                                                    <div *ngIf="f.Email.errors.email">Email must be a valid email address</div>
-                                                </div>
-                                            </div>
+                                <div class="row" style="margin-top: 10px">
 
+                                    <div class="col-4">
+                                        <input type="text" autocomplete="new-FirstName" placeholder="First name"
+                                            [(ngModel)]="RegistrationForm.FirstName" formControlName="firstName"
+                                            class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
                                         </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" autocomplete="new-LastName" placeholder="Last Name"
+                                            [(ngModel)]="RegistrationForm.LastName" formControlName="LastName"
+                                            class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" />
+                                        <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.LastName.errors.required">Last Name is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="email" autocomplete="new-Email" placeholder="Email"
+                                            [(ngModel)]="RegistrationForm.Email" formControlName="Email"
+                                            class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+                                        <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.Email.errors.required">Email is required</div>
+                                            <div *ngIf="f.Email.errors.email">Email must be a valid email address</div>
+                                        </div>
+                                    </div>
 
-                                        
+                                </div>
 
-                                        
 
-                                        <div class="row" style="margin-top: 10px">
-                                            <!-- <div class="col-4">
+
+
+
+                                <div class="row" style="margin-top: 10px">
+                                    <!-- <div class="col-4">
                                                 <input type="text" autocomplete="new-UserName" placeholder="UserName" [(ngModel)]="RegistrationForm.UserName" formControlName="UserName" class="form-control"
                                                     [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }" />
                                                 <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
@@ -50,76 +56,97 @@
                                                 </div>
                                             </div> -->
 
-                                            <div class="col-4">
-                                                <div class="form-group">
-                                                    <!-- <label for="PhoneNumber">Phone Number</label> -->
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text" bis_skin_checked="1" style="border-left: 1px solid #ced4da;background-color: #e9ecef;">
-                                                                <span class="fas">
-                                                                    +91
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" autocomplete="new-xPhoneNumber" id="PhoneNumber" class="form-control"
-                                                        style="border-right: 1px solid #ced4da;"
-                                                        placeholder="Phone"
-                                                            [(ngModel)]="RegistrationForm.PhoneNumber"
-                                                            formControlName="PhoneNumber"
-                                                            appPhoneMask
-                                                            [ngClass]="{ 'is-invalid': submitted && f.PhoneNumber.errors }">
-                                                    </div>
-                                                    <div *ngIf="submitted && f.PhoneNumber.errors"
-                                                        class="invalid-feedback">
-                                                        <div *ngIf="f.PhoneNumber.errors.required">Phone Number is
-                                                            required</div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <!-- <label for="PhoneNumber">Phone Number</label> -->
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text" bis_skin_checked="1"
+                                                        style="border-left: 1px solid #ced4da;background-color: #e9ecef;">
+                                                        <span class="fas">
+                                                            +91
+                                                        </span>
                                                     </div>
                                                 </div>
+                                                <input type="text" autocomplete="new-xPhoneNumber" id="PhoneNumber"
+                                                    class="form-control" style="border-right: 1px solid #ced4da;"
+                                                    placeholder="Phone" [(ngModel)]="RegistrationForm.PhoneNumber"
+                                                    formControlName="PhoneNumber" appPhoneMask
+                                                    [ngClass]="{ 'is-invalid': submitted && f.PhoneNumber.errors }">
                                             </div>
-
-                                            <div class="col-4">
-                                                <input type="password" autocomplete="new-Password" placeholder="Password" [(ngModel)]="RegistrationForm.Password" formControlName="Password" class="form-control"
-                                                    [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
-                                                <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
-                                                    <div *ngIf="f.Password.errors.required">Password is required</div>
-                                                    <div *ngIf="f.Password.errors.pattern">Password must be 8 character with (Uppercase, lowercase,number and specials
-                                                        character )
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <input type="password" autocomplete="new-ConfirmPassword" placeholder="Confirm password" [(ngModel)]="RegistrationForm.ConfirmPassword" formControlName="ConfirmPassword"
-                                                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ConfirmPassword.errors }"
-                                                />
-                                                <div *ngIf="submitted && f.ConfirmPassword.errors" class="invalid-feedback">
-                                                    <div *ngIf="f.ConfirmPassword.errors.required">Confirm password is required</div>
-                                                    <div *ngIf="f.ConfirmPassword.errors.mustMatch">Password should be same as Confirm password</div>
-                                                </div>
+                                            <div *ngIf="submitted && f.PhoneNumber.errors" class="invalid-feedback">
+                                                <div *ngIf="f.PhoneNumber.errors.required">Phone Number is
+                                                    required</div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="row" style="margin-top: 10px">
-                                            
-                                            
+                                    <div class="col-4">
+                                        <input type="password" autocomplete="new-Password" placeholder="Password"
+                                            [(ngModel)]="RegistrationForm.Password" formControlName="Password"
+                                            class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
+                                        <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                                            <div *ngIf="f.Password.errors.required">Password is required</div>
+                                            <div *ngIf="f.Password.errors.pattern">Password must be 8 character with
+                                                (Uppercase, lowercase,number and specials
+                                                character )
+                                            </div>
                                         </div>
-
-                                        <div class="row" style="margin-top: 10px;">
-                                            <div class="col-4" >
-                                                <button (click)="Register()" type="submit" class="btn btn-primary btn-block">Register</button>
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="password" autocomplete="new-ConfirmPassword"
+                                            placeholder="Confirm password"
+                                            [(ngModel)]="RegistrationForm.ConfirmPassword"
+                                            formControlName="ConfirmPassword" class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && f.ConfirmPassword.errors }" />
+                                        <div *ngIf="submitted && f.ConfirmPassword.errors" class="invalid-feedback">
+                                            <div *ngIf="f.ConfirmPassword.errors.required">Confirm password is required
                                             </div>
-                                            <div class="col-4" >
-                                                <button (click)="Login()" class="btn btn-secondary btn-block">Already have an account ?</button>
-                                            </div>
-                                        </div>                                        
-
-                                    </form>
+                                            <div *ngIf="f.ConfirmPassword.errors.mustMatch">Password should be same as
+                                                Confirm password</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- /.form-box -->
-                            </div>
-                    
+                                <div class="row" >
+
+                                    <div class="col-4">
+
+                                        <select class="form-control select2" id="dropdownRole" name="Role"
+                                            [(ngModel)]="RegistrationForm.Role" data-placeholder="Select a Role">
+                                            <!-- <option value="0">Select a Module</option> -->
+                                            <option [value]="item.Id" *ngFor="let item of RoleList">
+                                                {{item.Name}}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 10px">
+
+
+                                </div>
+
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-4">
+                                        <button (click)="Register()" type="submit"
+                                            class="btn btn-primary btn-block">Register</button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button (click)="Login()" class="btn btn-secondary btn-block">Already have an
+                                            account ?</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <!-- /.form-box -->
+                    </div>
+
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 
 </div>

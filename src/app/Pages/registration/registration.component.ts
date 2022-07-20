@@ -43,7 +43,8 @@ export class RegistrationComponent implements OnInit {
     PhoneNumber: ""    
   };
   
-
+  RoleList = [];
+  SelectedRoleID = "";
   
   constructor(
     //protected changeDetectorRef: ChangeDetectorRef, 
@@ -56,6 +57,9 @@ export class RegistrationComponent implements OnInit {
 
     ngOnInit(): void {  
 
+      this.GetAllRolePermissionDropdown();
+
+      jquery('.select2').select2();
       //GetRole();
 
       var that = this;  
@@ -78,6 +82,41 @@ export class RegistrationComponent implements OnInit {
         }
       );
     }
+
+    GetAllRolePermissionDropdown() {
+      this.appService.GetWithToken("RolePermissions", "GetAllRolePermissionDropdown?Role=" + localStorage.getItem("Role").replace(" ","_") )
+        .subscribe(
+          (res: any) => {
+            var objResult = res//.json()
+            if (objResult && objResult.ErrorNumber == "0") {
+              this.RoleList = objResult.Data.objRole;
+              this.SetChangeEvent();
+            }
+            else {
+              this.notifyService.showError("Error#" + objResult.ErrorNumber + " : " + objResult.ErrorMessage, "Error");
+            }
+          },
+          error =>
+            this.errorMessage = <any>error
+        );
+    }
+
+    SetChangeEvent() {
+      var that = this;
+      setTimeout(() => {
+        jquery("#dropdownRole").on("change", function () {
+          setTimeout(() => {
+            if ($(this).val()) {
+              that.SelectedRoleID = $(this).val();
+            }
+            else {
+              this.SelectedRoleID = "0";
+            }
+          }, 500);
+        });  
+     
+      }, 500);
+    }
   
     // Getter function in order to get form controls value
     get f() {
@@ -90,6 +129,11 @@ export class RegistrationComponent implements OnInit {
   
       if (this.RegistrationForm.PhoneNumber.length == 17) {
         this.RegistrationForm.PhoneNumber = this.RegistrationForm.PhoneNumber.substring(0, 16)
+      }
+
+      if (!this.SelectedRoleID || this.SelectedRoleID == "0") {
+        this.notifyService.showError("Please select User Role", "");
+        return ;
       }
   
       // Returns false if form is invalid
@@ -104,7 +148,7 @@ export class RegistrationComponent implements OnInit {
         "Password": this.RegistrationForm.Password,
         "ConfirmPassword": this.RegistrationForm.ConfirmPassword,
         "PhoneNumber": this.RegistrationForm.PhoneNumber,
-        "Role": 1          
+        "Role": this.SelectedRoleID         
   
       }
       this.appService.PostNoToken("Account", "Register", objRegister)
