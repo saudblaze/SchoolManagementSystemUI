@@ -8,8 +8,10 @@ import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './Pages/forgot-password/forgot-password.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { RegistrationComponent } from './Pages/registration/registration.component';
+import { RoleAddEditComponent } from './Pages/role-add-edit/role-add-edit.component';
 import { RolePermissionsAddEditComponent } from './Pages/role-permissions-add-edit/role-permissions-add-edit.component';
 import { RolePermissionsComponent } from './Pages/role-permissions/role-permissions.component';
+import { RoleComponent } from './Pages/role/role.component';
 import { StudentAddEditComponent } from './Pages/student-add-edit/student-add-edit.component';
 import { StudentComponent } from './Pages/student/student.component';
 import { SubjectAddEditComponent } from './Pages/subject-add-edit/subject-add-edit.component';
@@ -124,6 +126,21 @@ const routes: Routes = [  {
     path:'RolePermissionsAddEdit/:id',
     //canActivate: [AuthGuard],
     component:RolePermissionsAddEditComponent
+  },
+  {
+    path:'Roles',
+    //canActivate: [AuthGuard],
+    component:RoleComponent
+  },
+  {
+    path:'RolesAddEdit',
+    //canActivate: [AuthGuard],
+    component:RoleAddEditComponent
+  },
+  {
+    path:'RolesAddEdit/:id',
+    //canActivate: [AuthGuard],
+    component:RoleAddEditComponent
   },
 ];
 

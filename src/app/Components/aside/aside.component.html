@@ -130,6 +130,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item" *ngIf="SystemSettings.objRole.View">
+                            <a id="Roles" routerLink="/Roles" class="nav-link">
+                                <i class="nav-icon fas fa-user-tag"></i>
+                                <p>
+                                    Role
+                                </p>
+                            </a>
+                        </li>
                         <!-- <li class="nav-item" *ngIf="SystemSettings.objRolePermissions.View">
                             <a id="RolePermissions" routerLink="/RolePermissions" class="nav-link">
                                 <i class="nav-icon fas fa-user-tag"></i>

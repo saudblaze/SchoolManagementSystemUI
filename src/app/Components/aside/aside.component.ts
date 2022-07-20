@@ -34,6 +34,7 @@ export class AsideComponent implements OnInit {
 
     $("#Subject").removeClass("active");
     $("#Batch").removeClass("active");
+    $("#Roles").removeClass("active");
     
 
 
@@ -76,7 +77,17 @@ export class AsideComponent implements OnInit {
         $("#Batch").addClass("active");
         $("#SystemSettingsli").addClass("menu-open");
         return;
-      }       
+      }    
+      if (this.activeRoute == "RolePermissionsComponent" || this.activeRoute == "RolePermissionsAddEditComponent") {
+        $("#RolePermissions").addClass("active");
+        $("#SystemSettingsli").addClass("menu-open");
+        return;
+      }   
+      if (this.activeRoute == "RoleComponent" || this.activeRoute == "RoleAddEditComponent") {
+        $("#Roles").addClass("active");
+        $("#SystemSettingsli").addClass("menu-open");
+        return;
+      }      
     }, 100);
 
   }

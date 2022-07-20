@@ -119,7 +119,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12">
+                                            <!-- <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="Subjects">Subjects</label>
                                                     <div class="input-group">
@@ -128,6 +128,19 @@
                                                     <div *ngIf="submitted && f.Subjects.errors" class="invalid-feedback">
                                                         <div *ngIf="f.Subjects.errors.required">Subjects is required</div>
                                                     </div>
+                                                </div>
+                                            </div> -->
+
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label>Subject Multiple </label>
+                                                    <ng-multiselect-dropdown [(ngModel)]="selectedItems" [settings]="dropdownSettings" [placeholder]="'Select Subject'" [data]="SubjectList"
+                                                    (onSelect)="onItemSelect($event)" [ngModelOptions]="{standalone: true}"
+                                                    (onSelectAll)="onSelectAll($event)" [ngClass]="{ 'is-invalid': submitted && selectedItems.length == 0 }">
+                                                </ng-multiselect-dropdown>
+                                                <div *ngIf="submitted && selectedItems.length == 0" class="invalid-feedback">
+                                                    <div>Subject is required</div>
+                                                </div>
                                                 </div>
                                             </div>
                                             

@@ -112,7 +112,7 @@
 
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label>Multiple</label>
+                                                        <label>Subject Multiple </label>
                                                         <ng-multiselect-dropdown [(ngModel)]="selectedItems" [settings]="dropdownSettings" [placeholder]="'Select Subject'" [data]="SubjectList"
                                                         (onSelect)="onItemSelect($event)" [ngModelOptions]="{standalone: true}"
                                                         (onSelectAll)="onSelectAll($event)" [ngClass]="{ 'is-invalid': submitted && selectedItems.length == 0 }">

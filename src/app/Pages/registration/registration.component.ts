@@ -44,24 +44,7 @@ export class RegistrationComponent implements OnInit {
   };
   
 
-  HotelRegistrationForm = {
-    Id: 0,
-    HotelName: "",
-    Address1: "",
-    Address2: "",
-    Addresstwo: "",
-    CityName: "",
-    StateID: "",
-    Zipcode: "",
-    Phone: "",
-    SubscriptionID: 0,
-    SubscriptionSelection: "",
-    HotelLogo: "",
-    HotelLogoFileName: "",
-    ByteData: undefined,
-    SelectedHotelCategory: ""    
-  };
-
+  
   constructor(
     //protected changeDetectorRef: ChangeDetectorRef, 
     private notifyService: NotificationService, 
@@ -72,6 +55,9 @@ export class RegistrationComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {  
+
+      //GetRole();
+
       var that = this;  
       
       this.registerForm = this.formBuilder.group(

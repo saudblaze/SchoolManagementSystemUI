@@ -8,27 +8,22 @@ import { NotificationService } from 'src/app/Services/notification.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-subject',
-  templateUrl: './teacher.component.html',
-  styleUrls: ['./teacher.component.css']
+  selector: 'app-role',
+  templateUrl: './role.component.html',
+  styleUrls: ['./role.component.css']
 })
-export class TeacherComponent  implements OnInit {
+export class RoleComponent implements OnInit {
   @ViewChild('mydataTable', { static: false }) primarySampleComponent: ElementRef;
   dataTable: any;
   dtOption: any = {};
 
   StateToBeDeleted = {
-    TeacherID: 0,
-    TeacherName: "",    
-    Abbreviations:""
+    Id: 0,
+    RoleName: ""    
   };
   
-  StateSearchForm = {
-    TeacherName: ""    ,
-    PhoneNumber:"",
-    WhatsAppNumber:"",
-    Email:"",
-    Subjects:""
+  UserRoleSearchForm = {
+    RoleName: ""        
   }
   errorMessage;
   
@@ -46,42 +41,37 @@ export class TeacherComponent  implements OnInit {
     this.SystemSettings = JSON.parse(localStorage.getItem("systemsettings"));
   }
 
-  GetTeacherById(Id) {
-    this.router.navigate(['TeacherAddEdit', Id]);
+  GetStateById(Id) {
+    this.router.navigate(['RolesAddEdit', Id]);
   }
 
   SearchHotel() {
     this.dDatatable.draw();
   }
   ClearSearch() {
-    this.StateSearchForm = {
-      TeacherName: ""      ,
-      PhoneNumber: ""  ,
-      WhatsAppNumber: ""  ,   
-      Email: ""  , 
-      Subjects: ""  
+    this.UserRoleSearchForm = {
+      RoleName: ""            
     }
     this.dDatatable.draw();
   }
 
-  DeleteTeacherConfirmation(data) {
+  DeleteStateConfirmation(data) {
     this.StateToBeDeleted = data
     $('#myModal').modal('show');
   }
   CloseModal() {
     $('#myModal').modal('hide');
   }
-  DeleteTeacher() {
-    this.appService.GetWithToken("Teacher", "DeleteTeacherById?Id=" + this.StateToBeDeleted.TeacherID + "&UpdatedBy=" + localStorage.getItem("UserId"))
+  DeleteHotel() {
+    this.appService.GetWithToken("UserRole", "DeleteUsersRoleById?Id=" + this.StateToBeDeleted.Id + "&UpdatedBy=" + localStorage.getItem("UserId"))
 
       .subscribe(
         (res: any) => {
           var objResult = res//.json()
           if (objResult && objResult.ErrorNumber == "0") {
             this.StateToBeDeleted = {
-              TeacherID: 0,
-              TeacherName: "",   
-              Abbreviations:""  
+              Id: 0,
+              RoleName: "",                 
             };
             $('#myModal').modal('hide');
             this.notifyService.showError("State successfully delete.", "")
@@ -111,10 +101,10 @@ export class TeacherComponent  implements OnInit {
       // },
       "createdRow": function (row, data, dataIndex) {
         $(".btnEdit", $(row)).click(() => {
-          me.GetTeacherById(data.TeacherID);
+          me.GetStateById(data.Id);
         });
         $(".btnDelete", $(row)).click(() => {
-          me.DeleteTeacherConfirmation(data);
+          me.DeleteStateConfirmation(data);
         });
 
       },
@@ -137,58 +127,33 @@ export class TeacherComponent  implements OnInit {
         }
       ],
       "ajax": {
-        "url": environment.apiUrl + "api/Teacher/GetTeacherList",
+        "url": environment.apiUrl + "api/UserRole/GetUserRoleList",
         "type": "POST",
-        "data": function (data) {         
-
-           data.TeacherName = me.StateSearchForm.TeacherName;
-           data.PhoneNumber = me.StateSearchForm.PhoneNumber;  
-           data.WhatsAppNumber = me.StateSearchForm.WhatsAppNumber;  
-           data.Email = me.StateSearchForm.Email;  
-           data.Subjects = me.StateSearchForm.Subjects;            
+        "data": function (data) {
+           data.RoleName = me.UserRoleSearchForm.RoleName;                       
         }
       },
       "columns": [
         {
           "title": "ID",
-          "data": "TeacherID",
+          "data": "Id",
           "class": "colwidth50"     
         },
         {
-          "title": "Teacher Name",
-          "data": "TeacherName",
+          "title": "Role Name",
+          "data": "RoleName",
           "class": "colwidth300"      
-        },
-        {
-          "title": "Phone Number",
-          "data": "PhoneNumber",
-          "class": "colwidth300"      
-        },
-        {
-          "title": "WhatsApp Number",
-          "data": "WhatsAppNumber",
-          "class": "colwidth300"      
-        },
-        {
-          "title": "Email",
-          "data": "Email",
-          "class": "colwidth300"      
-        },
-        {
-          "title": "Subjects",
-          "data": "SelectedSubjectsList",
-          "class": "colwidth300"      
-        },
+        },        
         {
           "title": "Action",
-          "data": "TeacherID",
+          "data": "Id",
           "render": function (data) {
             var ret = '';
-            if (me.SystemSettings.objTeacher.Update)
+            if (me.SystemSettings.objRole.Update)
             {
               ret = "<button type='button' Id='" + data + "' class='btn btn-success btn-xs btnEdit'><i class='fa fa-edit'></i> Edit</button> ";
             }            
-            if (me.SystemSettings.objTeacher.Delete)
+            if (me.SystemSettings.objRole.Delete)
             {
               ret += "<button type='button' Id='" + data + "' class='btn btn-danger btn-xs btnDelete'><i class='fas fa-trash'></i> Delete</button>";
             } 
@@ -208,7 +173,7 @@ export class TeacherComponent  implements OnInit {
   }
 
   AddNew() {
-    this.router.navigate(['TeacherAddEdit']);
+    this.router.navigate(['RolesAddEdit']);
   }
 
 }

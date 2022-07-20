@@ -44,6 +44,8 @@ import { RolePermissionsComponent } from './Pages/role-permissions/role-permissi
 import { RolePermissionsAddEditComponent } from './Pages/role-permissions-add-edit/role-permissions-add-edit.component';
 import { PhoneMaskDirective } from './Directives/phone-mask-directive';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { RoleComponent } from './Pages/role/role.component';
+import { RoleAddEditComponent } from './Pages/role-add-edit/role-add-edit.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     BatchAddEditComponent,
     RolePermissionsComponent,
     RolePermissionsAddEditComponent ,
-    PhoneMaskDirective
+    PhoneMaskDirective,
+    RoleComponent,
+    RoleAddEditComponent
   ],
   imports: [
     BrowserModule,
